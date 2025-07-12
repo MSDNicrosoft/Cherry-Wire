@@ -35,15 +35,10 @@ ext {
     }
 }
 
-group(project.mod_maven_group)
-setVersion(project.getModVersion())
-
 base {
-    archivesBaseName("${project.mod_archives_base_name}")
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding("UTF-8")
+    group = project.mod_maven_group
+    version = project.getModVersion()
+    archivesName = project.mod_archives_name
 }
 
 processResources {
@@ -67,7 +62,7 @@ processResources {
 }
 
 java {
-    sourceCompatibility(JavaVersion.VERSION_1_8)
-    targetCompatibility(JavaVersion.VERSION_1_8)
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
     withSourcesJar()
 }
